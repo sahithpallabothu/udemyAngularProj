@@ -1,0 +1,40 @@
+
+<!--Using component as attribute-->
+<!-- <div app-server></div> -->
+
+<!--using component as class-->
+<!-- <div class="app-server"></div> -->
+
+<!-- <input type="text" class="form-control" (input)="onUpdateServer($event)"/> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <label for="userName">User Name:</label><br/>
+            <input type="text" id="userName" class="form-control" [(ngModel)]="userName">
+            <p>{{userName}}</p>
+            <button class="btn btn-primary" [disabled]="!userName" (click)="userName=''">Reset User</button>
+        </div>
+    </div>
+</div>
+<div>
+    <input type="text" class="form-control" [(ngModel)]="serverValue"/>
+    <p>{{serverValue}}</p>
+    <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
+    <!-- <p [innerText]="allowNewServer"></p> -->
+    <!-- <p>{{serverCreationStatus}}</p> -->
+    <p *ngIf="isServerCreated;else noServer">Server Created with status {{serverCreationStatus}}</p>
+    <ng-template #noServer>
+        <p>No Server Created</p>
+    </ng-template>
+    <!-- <app-server *ngFor="let server of serversList"></app-server> -->
+
+    <button class="btn btn-primary" (click)="onDisaplayDetails()">Display Details</button>
+    <p *ngIf="isDisplay">Show The Details</p>
+    <div *ngFor="let log of logNumbers" [ngStyle]="{'background-color':log>=5?'blue':'transparent'}"
+        [ngClass]="{'white-text':log>=5}">
+        {{log}}
+    </div>
+    <!-- <app-success-alert></app-success-alert>
+    <app-warning-alert></app-warning-alert> -->
+    </div>
