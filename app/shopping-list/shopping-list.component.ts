@@ -9,7 +9,8 @@ export class ShoppingListComponent implements OnInit {
   
   ingredients:Ingredient[]=[
     {name:"Ingredient1",amount:100},
-    {name:"Ingredient2",amount:300}
+    {name:"Ingredient2",amount:300},
+    {name:"Ingredient3",amount:350},
   ];
   constructor() { }
 
